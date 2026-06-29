@@ -1,0 +1,56 @@
+{
+    "mode": "initial",
+    "load_checkpoint": "",
+    "env": {
+        "device": "cuda",
+        "project_dir": "/path/to/store/experiment_outputs/example_paired_experiment1",
+        "checkpoint_interval": 1
+    },
+    "data": {
+        "data_dir": "/path/to/paired/data/B30f_B50f", 
+        "num_workers": 8,
+        "batch_size": 25,
+        "image_size": 512,
+        "clip_range": [-1024, 3072],
+        "scale_range": [-1, 1],
+        "in_kernel": "hard",
+        "out_kernel": "soft",
+        "target_type": "residue",
+        "aug_flip": true,
+        "aug_rotation": true
+    },
+    "model": {
+        "backbone": "pix2pix"
+    },
+    "pix2pix": {
+        "model": "pix2pix",
+        "netG": "unet_512",
+        "direction": "AtoB",
+        "image_loss_type": "L1",
+        "lambda_IMAGE": 100,
+        "dataset_mode": "aligned",
+        "pool_size": 0,
+        "norm": "batch",
+        "isTrain": true,
+        "continue_train": false,
+        "verbose": false,
+        "lr_policy": "linear",
+        "epoch_count": 0,
+        "n_epochs": 60,
+        "n_epochs_decay": 60,
+        "input_nc": 1,
+        "output_nc": 1,
+        "ngf": 64,
+        "ndf": 64,
+        "no_dropout": false,
+        "init_type": "normal",
+        "init_gain": 0.02,
+        "device": "cuda",
+        "netD": "basic",
+        "n_layers_D": 3,
+        "gan_mode": "lsgan",
+        "lr": 0.0002,
+        "beta1": 0.5,
+        "preprocess": "none"
+    }
+}
